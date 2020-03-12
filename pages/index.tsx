@@ -34,7 +34,7 @@ const Footer = () => (
 
 const Content = ({ question, level, handleSelectLevel, handlePickOne }) => (
 	<div style={{ height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
-		<div className="Box Box--spacious col-6 mx-auto text-center d-flex" style={{ height: 300 }}>
+		<div className="Box Box--spacious col-6 mx-auto text-center d-flex" style={{ height: 300, width: 500 }}>
 			<div className="Box-body d-flex flex-1 flex-column flex-justify-between" style={{ height: 300 }}>
 				<div />
 				<h3 className="f1-light">
