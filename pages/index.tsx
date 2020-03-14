@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import leetcode from "./leetcode.png";
 import twitter from "./twitter.svg";
@@ -9,18 +9,18 @@ const getTitle = question => (question ? question.stat.question__title : "");
 const getQuestionUrl = question => (question ? `https://leetcode.com/problems/${question.stat.question__title_slug}` : "");
 
 const Header = () => (
-	<div className="Header">
+	<div className="Header" style={{ position: "absolute", width: "100%" }}>
 		<div className="Header-item">
 			<a href="#" className="Header-link f4 d-flex flex-items-center">
 				<img style={{ width: 32, height: 32, marginRight: 16 }} src={leetcode} alt="leetcode" />
-				<span>Leetcode Random Question</span>
+				<span>Leetcode Random Pick</span>
 			</a>
 		</div>
 	</div>
 );
 
 const Footer = ({ question }) => (
-	<div className="Header position-absolute bottom-0" style={{ left: 0, right: 0, display: "flex", flex: 1, justifyContent: "flex-end" }}>
+	<div className="Header position-absolute bottom-0" style={{ left: 0, right: 0, bottom: 0, display: "flex", flex: 1, justifyContent: "flex-end" }}>
 		<a
 			target="_blank"
 			rel="noreferrer"
@@ -38,10 +38,10 @@ const Footer = ({ question }) => (
 );
 
 const Content = ({ question, level, handleSelectLevel, handlePickOne }) => (
-	<div style={{ height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+	<div style={{ display: "flex", height: "100%", justifyContent: "center", alignItems: "center" }}>
 		<div className="Box Box--spacious col-6 mx-auto text-center d-flex" style={{ height: 300, width: 500 }}>
 			<div className="Box-body d-flex flex-1 flex-column flex-justify-between" style={{ height: 300 }}>
-				<div />
+				<p className="h3">Today's problem</p>
 				<h3 className="f1-light">{question ? <a href={getQuestionUrl(question)} target="_blank" rel="noreferrer">{`${getTitle(question)}`}</a> : <div>Leet code question</div>}</h3>
 				<div className="d-flex">
 					<div style={{ marginRight: 16 }}>
@@ -79,15 +79,19 @@ const Index = () => {
 	const handleSelectLevel = index => {
 		setLevel(index);
 	};
-	console.log(question);
+	useEffect(() => {
+		handlePickOne();
+	}, []);
 	return (
 		<>
 			<Head>
 				<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/14.2.0/primer.min.css" />
 			</Head>
-			<Header />
-			<Content level={level} question={question} handleSelectLevel={handleSelectLevel} handlePickOne={handlePickOne} />
-			<Footer question={question} />
+			<div style={{ height: "100vh" }}>
+				<Header />
+				<Content level={level} question={question} handleSelectLevel={handleSelectLevel} handlePickOne={handlePickOne} />
+				<Footer question={question} />
+			</div>
 		</>
 	);
 };
