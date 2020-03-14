@@ -42,7 +42,7 @@ const Content = ({ question, level, handleSelectLevel, handlePickOne }) => (
 		<div className="Box Box--spacious col-6 mx-auto text-center d-flex" style={{ height: 300, width: 500 }}>
 			<div className="Box-body d-flex flex-1 flex-column flex-justify-between" style={{ height: 300 }}>
 				<p className="h3">Today's problem</p>
-				<h3 className="f1-light">{question ? <a href={getQuestionUrl(question)} target="_blank" rel="noreferrer">{`${getTitle(question)}`}</a> : <div>Leet code question</div>}</h3>
+				<h3 className="f1-light">{question ? <a href={getQuestionUrl(question)} target="_blank" rel="noreferrer">{`${getTitle(question)}`}</a> : null}</h3>
 				<div className="d-flex">
 					<div style={{ marginRight: 16 }}>
 						<details className="dropdown details-reset details-overlay d-inline-block">
