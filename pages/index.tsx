@@ -85,6 +85,19 @@ const Index = () => {
 	return (
 		<>
 			<Head>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `<!-- Global site tag (gtag.js) - Google Analytics -->
+						<script async src="https://www.googletagmanager.com/gtag/js?id=UA-32627465-12"></script>
+						<script>
+						  window.dataLayer = window.dataLayer || [];
+						  function gtag(){dataLayer.push(arguments);}
+						  gtag('js', new Date());
+						
+						  gtag('config', 'UA-32627465-12');
+						</script>`
+					}}
+				/>
 				<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/14.2.0/primer.min.css" />
 				<meta content="Leetcode Random Pick. アルゴリズムの勉強に役立つ、Leetcodeの問題を任意の難易度でランダムにピックアップします。" name="description" />
 				<meta content="Leetcode,アルゴリズム,algorithm,programming,プログラミング" name="keywords" />
