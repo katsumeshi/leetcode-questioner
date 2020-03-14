@@ -86,6 +86,8 @@ const Index = () => {
 		<>
 			<Head>
 				<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/14.2.0/primer.min.css" />
+				<meta content="Leetcode Random Pick. アルゴリズムの勉強に役立つ、Leetcodeの問題を任意の難易度でランダムにピックアップします。" name="description" />
+				<meta content="Leetcode" name="keywords" />
 			</Head>
 			<div style={{ height: "100vh" }}>
 				<Header />
